@@ -12,5 +12,10 @@ Route::get('/', function () {
 Route::get('/contact', function () {
     return view('contact.index');
 });
-
+Route::get('/care', function () {
+    return view('contact.index');
+});
+Route::get('/about', function () {
+    return view('contact.index');
+});
 Route::resource('gallery', GalleryController::class);

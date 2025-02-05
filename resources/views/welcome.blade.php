@@ -19,6 +19,7 @@
         </main>
 
         @livewire('footer')  <!-- Footer Livewire Component -->
+        @livewire('example-component')  <!-- Footer Livewire Component -->
 
         @livewire('notifications')
 
