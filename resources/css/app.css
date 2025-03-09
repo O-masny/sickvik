@@ -2,3 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 @tailwind variants;
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.animate-spin {
+    animation: spin 1s linear infinite;
+}
+
+#loading {
+    transition: opacity 1s ease-out;
+}
+
+#homepage {
+    opacity: 0;
+    transition: opacity 1s ease-in;
+}
