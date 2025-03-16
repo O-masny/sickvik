@@ -38,7 +38,7 @@
             style="background-image: url('assets/ink_1.png');">
         </div>
     </div>
-</div>
+</div>s
 
 <script>
     document.addEventListener("DOMContentLoaded", function() {
