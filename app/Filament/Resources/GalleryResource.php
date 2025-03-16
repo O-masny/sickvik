@@ -9,6 +9,8 @@ use Filament\Resources\Resource;
 use Filament\Tables;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+use Filament\Forms\Components\Select;
+use Filament\Tables\Columns\ImageColumn;
 
 class GalleryResource extends Resource
 {
@@ -30,7 +32,10 @@ protected static ?string $navigationIcon = 'heroicon-o-photo';  // Například '
                     ->label('Description')
                     ->nullable()
                     ->maxLength(1000),
-
+                Select::make('tags')
+                    ->relationship('tags', 'name') // Nastavení vztahu
+                    ->multiple()
+                    ->preload(),
                 Forms\Components\FileUpload::make('image')
                     ->label('Image')
                     ->image()
@@ -77,8 +82,8 @@ protected static ?string $navigationIcon = 'heroicon-o-photo';  // Například '
                     ->disk('public')
                     ->height(150)
                     ->width(150),
-                Tables\Columns\TextColumn::make('title')
-                    ->label('Title'),
+                Tables\Columns\TextColumn::make('title')->sortable()->searchable(),
+                Tables\Columns\TextColumn::make('tags.name')->label('Tagy')->separator(', '),
                 Tables\Columns\TextColumn::make('description')
                     ->label('Description')
                     ->limit(50),
