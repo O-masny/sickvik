@@ -12,7 +12,7 @@ class ExampleComponent extends Component
     }
     
     public function animate()
-{
-          $this->dispatch('startAnimation');
-}
+    {
+        $this->dispatch('startAnimation');
+    }
 }

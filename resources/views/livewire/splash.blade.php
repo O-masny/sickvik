@@ -8,7 +8,4 @@
         x-transition.duration.3000ms
     >
 
-    <div x-show="!showGif" x-transition.opacity.duration.1000ms class="absolute inset-0 bg-white flex items-center justify-center">
-        <h1 class="text-[128px] font-heyaugust text-gray-800">SickVik</h1>
-    </div>
 </div>

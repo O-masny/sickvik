@@ -1,0 +1,50 @@
+@extends('components.layouts.app')
+
+@section('content')
+<div>
+    @livewire('splash')
+      <!-- welcome screen -->
+      <div id="homepage-content" class="hidden flex flex-col justify-center items-center h-screen  text-center">
+        <h1 class=" text-black text-7xl">SickVik</h1>
+        <h2 class="text-black text-4xl">Viktor Suchomel</h2>
+        <div x-data="{ show: false }" x-init="setTimeout(() => show = true, 3000)" 
+            class="absolute inset-0 bg-no-repeat bg-right bg-contain opacity-0 transition-opacity duration-1000"
+            :class="{ 'opacity-100': show }"
+            style="background-image: url('assets/ink_1.png');">
+        </div>
+    </div>
+    <div class="h-20"></div>
+      <!-- aboutMe -->
+    <div class="flex-col justify-center items-center h-1/2 text-center">
+            <h1 class=" text-black text-7xl">O mne</h1>
+            <p class="text-lg mt-4 text-gray-700 px-20">
+            {{ file_get_contents(resource_path('views/content/about_me_description.txt')) }}
+            </p>
+    </div>
+    <div class="relative w-full h-screen flex justify-center items-center bg-cover bg-center text-white" 
+        style="background-image: url('/assets/ink_2.png');">
+        
+ 
+        <h1 class="relative z-10 text-7xl font-bold">Galerie</h1>
+    </div>
+
+    <div class="w-full ">
+        @livewire('slider')
+    </div>
+      <div id="homepage-content" class="flex  justify-center items-center h-screen  text-center">
+        <div x-data="{ show: false }" x-init="setTimeout(() => show = true, 3000)" 
+            class="absolute inset-0 bg-no-repeat bg-right bg-contain opacity-100 transition-opacity duration-1000"
+            :class="{ 'opacity-100': show }"
+            style="background-image: url('assets/ink_1.png');">
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        setTimeout(function() {
+            document.getElementById('homepage-content').classList.remove('hidden');
+        }, 1000);
+    });
+</script>
+@endsection
