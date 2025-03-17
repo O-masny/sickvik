@@ -14,7 +14,7 @@
     class="absolute inset-0 bg-no-repeat bg-right bg-contain opacity-0 transition-opacity duration-1000"
     :class="{ 'opacity-100': show }"
     style="background-image: url('assets/ink_1.png'); background-size: cover; background-position: center;">
-</div>
+    </div>
     </div>
     <div class="h-20"></div>
       <!-- aboutMe -->

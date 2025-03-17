@@ -1,6 +1,13 @@
 <!-- resources/views/contact/index.blade.php -->
-<x-layouts.app>
-        <div class="container mx-auto p-6">
+@extends('components.layouts.app')
+
+@section('content')
+<div>
+      
+    <div id="homepage-content" class="hidden flex flex-col justify-center items-center h-screen  text-center">
+        <h1 class=" text-black text-7xl z-20">SickVik</h1>
+        <h2 class="text-black text-4xl z-20">Viktor Suchomel</h2>
+ <div class="container mx-auto p-6">
             <h1 class="text-3xl font-bold mb-4">Contact Us</h1>
 
             <p>If you have any questions, feel free to reach out to us!</p>
@@ -28,4 +35,15 @@
                 </div>
             </form>
         </div>
-</x-layouts.app>
+</div>
+@endsection
+
+
+
+
+
+
+
+
+
+

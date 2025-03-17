@@ -26,7 +26,9 @@ class MostViewedImages extends TableWidget
        ImageColumn::make('file_name')
             ->label('Image')
             ->disk('public')
-                    ->state(fn (Gallery $record): ?string => $record->file_name ? asset("storage/gallery/{$record->file_name}") : null),
+            ->width("50")
+            ->height("100")
+            ->state(fn (Gallery $record): ?string => $record->file_name ? asset("storage/gallery/{$record->file_name}") : null),
             TextColumn::make('title')->sortable(),
             TextColumn::make('views')->sortable()->label('Views'),
         ];

@@ -2,6 +2,7 @@ import preset from './vendor/filament/support/tailwind.config.preset'
 
 /** @type {import('tailwindcss').Config} */
 export default {
+    darkMode: 'class', // This is our star player for the dark mode!
     presets: [preset],
     important: true, // Vynutí Tailwind třídy před ostatními styly
     content: [
@@ -22,22 +23,22 @@ export default {
             xl: '1440px',
         },
         extend: {
-        colors: {
-            'blue': '#1fb6ff',
-            'pink': '#ff49db',
-            'orange': '#ff7849',
-            'green': '#13ce66',
-            'gray-dark': '#273444',
-            'gray': '#8492a6',
-            'gray-light': '#d3dce6',
-               'white': "#FFF", 
-             'black': "#000",
+            colors: {
+                'blue': '#1fb6ff',
+                'pink': '#ff49db',
+                'orange': '#ff7849',
+                'green': '#13ce66',
+                'gray-dark': '#273444',
+                'gray': '#8492a6',
+                'gray-light': '#d3dce6',
+                'white': "#FFF",
+                'black': "#000",
 
-        },
-        fontFamily: {
-            sans: ['Share-Regular', 'sans-serif'],
-            serif: ['Share-TechMono', 'serif'],
-        },
+            },
+            fontFamily: {
+                sans: ['Share-Regular', 'sans-serif'],
+                serif: ['Share-TechMono', 'serif'],
+            },
             spacing: {
                 '128': '32rem',
                 '144': '36rem',
@@ -45,7 +46,7 @@ export default {
             borderRadius: {
                 '4xl': '2rem',
             },
-              fontSize: {
+            fontSize: {
                 'xs': '0.75rem',  // Výchozí, ale můžete změnit
                 'sm': '0.875rem',
                 'base': '1rem',    // Základní velikost textu

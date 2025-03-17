@@ -11,46 +11,19 @@ class GalleryController extends Controller
 {
     public function index()
     {
-        $galleries = Gallery::all();
-        return view('gallery.index', compact('galleries'));
+        $images =  Gallery::with('tags')->latest()->get();
+        return view('artworks.index', compact('images'));
     }
 
-    public function create()
+    public function show($id)
     {
-        return view('gallery.create');
+        $artwork = Gallery::with('tags')->findOrFail($id);
+        $relatedArtworks = Gallery::where('id', '!=', $id)->latest()->take(6)->get();
+        $tags = $artwork->tags; // Předání tagů z artworku
+
+        return view('artworks.show', compact('artwork', 'relatedArtworks','tags'));
     }
 
-     public function store(Request $request)
-    {
-        $request->validate([
-            'title' => 'required|string|max:255',
-            'description' => 'nullable|string',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:5120',
-        ]);
-
-        $file = $request->file('image');
-        $imagePath = $file->store('gallery', 'public');
-        $image = Image::make($file);
-
-        Gallery::create([
-            'title' => $request->title,
-            'description' => $request->description,
-            'file_name' => $file->getClientOriginalName(),
-            'file_size' => $file->getSize(),
-            'file_format' => $file->getClientOriginalExtension(),
-            'width' => $image->width(),
-            'height' => $image->height(),
-            'image_path' => $imagePath,
-        ]);
-
-        return redirect()->route('gallery.index');
-    }
-
-
-    public function edit(Gallery $gallery)
-    {
-        return view('gallery.edit', compact('gallery'));
-    }
 
    public function update(Request $request, Gallery $gallery)
     {
@@ -80,11 +53,5 @@ class GalleryController extends Controller
 
         return redirect()->route('gallery.index');
     }
-    public function destroy(Gallery $gallery)
-    {
-        Storage::disk('public')->delete($gallery->image_path);
-        $gallery->delete();
-
-        return redirect()->route('gallery.index');
-    }
+   
 }

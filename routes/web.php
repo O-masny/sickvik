@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GalleryController;
+use App\Http\Controllers\LocalizationController;
+
+use App\Livewire\ArtworkDetail;
 
 Route::get('/', function () {
     return view('home.index', [
@@ -9,13 +12,20 @@ Route::get('/', function () {
 ]);
 });
 
+Route::get('/artworks', [GalleryController::class, 'index']);
+Route::get('/artworks/{id}', [GalleryController::class, 'show'])->name('artworks.show');
+
 Route::get('/contact', function () {
     return view('contact.index');
 });
 Route::get('/care', function () {
-    return view('contact.index');
+    return view('care.index');
 });
 Route::get('/about', function () {
-    return view('contact.index');
+    return view('about.index');
 });
-Route::resource('gallery', GalleryController::class);
+
+Route::get(
+    'locale/{locale}',
+    [LocalizationController::class, 'setLanguage']
+)->name('locale');
