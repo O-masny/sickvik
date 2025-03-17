@@ -18,9 +18,6 @@ return new class extends Migration
             $table->string('file_name');
             $table->string('file_size');
             $table->string('file_format');
-            $table->integer('width');
-            $table->integer('height');
-            $table->string('image_path');
             $table->timestamps();
         });
     }

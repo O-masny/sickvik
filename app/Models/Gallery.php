@@ -11,8 +11,17 @@ class Gallery extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title', 'description', 'file_name', 'file_size', 'file_format', 'width', 'height', 'image_path'];
-   
+    protected $fillable = ['title', 'description', 'file_name', 'file_size', 'file_format',];
+    
+    protected $attributes = [
+        'views' => 0,
+    ];
+
+    public function incrementViews()
+        {
+            $this->increment('views');
+        }
+
    public function tags(): BelongsToMany
     {
         return $this->belongsToMany(Tag::class, 'gallery_tag');

@@ -4,6 +4,7 @@
 <div>
     @livewire('splash')
       
+    
     <div id="homepage-content" class="hidden flex flex-col justify-center items-center h-screen  text-center">
         <h1 class=" text-black text-7xl z-20">SickVik</h1>
         <h2 class="text-black text-4xl z-20">Viktor Suchomel</h2>
