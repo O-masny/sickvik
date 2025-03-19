@@ -6,17 +6,19 @@
       
     
     <div id="homepage-content" class="hidden flex flex-col justify-center items-center h-screen  text-center">
-        <h1 class=" text-black text-7xl z-20">SickVik</h1>
-        <h2 class="text-black text-4xl z-20">Viktor Suchomel</h2>
-   <div 
+        <h1 class=" text-black font-share-mono text-7xl z-20">SickVik</h1>
+        <h2 class="text-black font-august text-4xl z-20">Viktor Suchomel</h2>
+<div 
     x-data="{ show: false }" 
     x-init="setTimeout(() => show = true, 3000)" 
     class="absolute inset-0 bg-no-repeat bg-right bg-contain opacity-0 transition-opacity duration-1000"
     :class="{ 'opacity-100': show }"
     style="background-image: url('assets/ink_1.png'); background-size: cover; background-position: center;">
-    </div>
+</div>
+
     </div>
     <div class="h-20"></div>
+
       <!-- aboutMe -->
     <div class="flex-col justify-center items-center h-1/2 text-center">
             <h1 class=" text-black text-7xl">O mne</h1>
@@ -34,7 +36,13 @@
     <div class="w-full ">
         @livewire('slider')
     </div>
-      <div id="homepage-content" class="flex  justify-center items-center h-screen  text-center">
+    <div class="flex text-center items-center justify-center">
+        <a href="{{ route('artworks') }}">
+        <h1 class="font-mono bg-black rounded-full py-4 px-6 text-2xl text-white"> Přejít do galerie</h1>
+       </a>
+    </div>      
+
+        <div id="homepage-content" class="flex  justify-center items-center h-screen  text-center">
         <div x-data="{ show: false }" x-init="setTimeout(() => show = true, 3000)" 
             class="absolute inset-0 bg-no-repeat bg-right bg-contain opacity-100 transition-opacity duration-1000"
             :class="{ 'opacity-100': show }"

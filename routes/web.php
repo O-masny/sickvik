@@ -10,9 +10,9 @@ Route::get('/', function () {
     return view('home.index', [
     'slot' => 'Content to display in the slot'
 ]);
-});
+})->name('home');
 
-Route::get('/artworks', [GalleryController::class, 'index']);
+Route::get('/artworks', [GalleryController::class, 'index'])->name('artworks');
 Route::get('/artworks/{id}', [GalleryController::class, 'show'])->name('artworks.show');
 
 Route::get('/contact', function () {

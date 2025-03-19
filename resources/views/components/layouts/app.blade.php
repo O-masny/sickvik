@@ -5,7 +5,6 @@
     <meta name="application-name" content="{{ config('app.name') }}">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
     <title>{{ config('app.name') }}</title>
 
     @filamentStyles
@@ -13,8 +12,7 @@
 
 </head>
 <body x-data="{darkMode: $persist(false)}" :class="{'dark': darkMode === true }" class="antialiased">    
-    @livewire('language-switcher')
-    @livewire('theme-switcher')
+
     @livewire('navbar') 
     <main >
         @yield('content') <!-- Toto je místo pro slot -->

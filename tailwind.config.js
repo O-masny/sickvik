@@ -36,8 +36,10 @@ export default {
 
             },
             fontFamily: {
-                sans: ['Share-Regular', 'sans-serif'],
-                serif: ['Share-TechMono', 'serif'],
+                'share-regular': ['Share-Regular', 'sans-serif'],
+                'share-mono': ['Share-TechMono', 'serif'],
+                'august': ['Hey-august', 'serif'],
+
             },
             spacing: {
                 '128': '32rem',
