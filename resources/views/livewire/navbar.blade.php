@@ -4,7 +4,9 @@
         <div class=" items-center left-0 my-10  flex justify-center">
                 <img src="{{ asset('assets/logo/logo.svg') }}"width="70"height="70" alt="Logo" >
             @livewire('language-switcher')
-            </div>
+            @livewire('theme-switcher')
+  
+        </div>
          
 
       <!-- Navigační položky (uprostřed) -->
@@ -63,11 +65,11 @@
 
             <!-- Drawer Links (vycentrované na střed obrazovky) -->
             <ul class="mt-20 space-y-6 text-lg text-gray-800 text-center w-full">
-                <li><a href="#" wire:click="closeMenu">Dashboard</a></li>
-                <li><a href="#" wire:click="closeMenu">Search</a></li>
-                <li><a href="#" wire:click="closeMenu">Explore</a></li>
-                <li><a href="#" wire:click="closeMenu">About</a></li>
-                <li><a href="#" wire:click="closeMenu">Contact</a></li>
+                <li><a href="#"wire:navigate.hover wire:click="closeMenu">Dashboard</a></li>
+                <li><a href="#"wire:navigate.hover wire:click="closeMenu">Search</a></li>
+                <li><a href="#"wire:navigate.hover wire:click="closeMenu">Explore</a></li>
+                <li><a href="#"wire:navigate.hover wire:click="closeMenu">About</a></li>
+                <li><a href="#"wire:navigate.hover wire:click="closeMenu">Contact</a></li>
             </ul>
         </div>
     </div>

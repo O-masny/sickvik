@@ -3,18 +3,17 @@
 @section('content')
 <div>
     @livewire('splash')
-      
     
-    <div id="homepage-content" class="hidden flex flex-col justify-center items-center h-screen  text-center">
+    <div id="homepage-content" class="flex flex-col justify-center items-center h-screen  text-center">
         <h1 class=" text-black font-share-mono text-7xl z-20">SickVik</h1>
-        <h2 class="text-black font-august text-4xl z-20">Viktor Suchomel</h2>
-<div 
-    x-data="{ show: false }" 
-    x-init="setTimeout(() => show = true, 3000)" 
-    class="absolute inset-0 bg-no-repeat bg-right bg-contain opacity-0 transition-opacity duration-1000"
-    :class="{ 'opacity-100': show }"
-    style="background-image: url('assets/ink_1.png'); background-size: cover; background-position: center;">
-</div>
+        <h2 class="fade-in text-black font-august text-4xl z-20">Viktor Suchomel</h2>
+        <div 
+        x-data="{ show: false }" 
+        x-init="setTimeout(() => show = true, 3000)" 
+        class="absolute inset-0 bg-no-repeat bg-right bg-contain opacity-0 transition-opacity duration-1000"
+        :class="{ 'opacity-100': show }"
+        style="background-image: url('assets/ink_1.png'); background-size: cover; background-position: center;">
+        </div>
 
     </div>
     <div class="h-20"></div>
@@ -37,7 +36,8 @@
         @livewire('slider')
     </div>
     <div class="flex text-center items-center justify-center">
-        <a href="{{ route('artworks') }}">
+        <a href="{{ route('artworks') }}"                     
+        wire:navigate.hover>
         <h1 class="font-mono bg-black rounded-full py-4 px-6 text-2xl text-white"> Přejít do galerie</h1>
        </a>
     </div>      
@@ -51,11 +51,4 @@
     </div>
 </div>
 
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        setTimeout(function() {
-            document.getElementById('homepage-content').classList.remove('hidden');
-        }, 1000);
-    });
-</script>
 @endsection

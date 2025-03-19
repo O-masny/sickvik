@@ -1,9 +1,15 @@
-import gsap from "gsap";
-import ScrollToPlugin from "gsap/ScrollToPlugin";
+import "./animation"
+import "./scroll"
+document.addEventListener('alpine:init', () => {
 
-gsap.registerPlugin(ScrollToPlugin);
+    Alpine.store('darkMode', {
 
-const content = document.getElementById("smooth-content");
-gsap.set(document.body, { height: content.clientHeight });
+        on: Alpine.$persist(true).as('darkMode_on'),
 
+        toggle() {
+            this.on = !this.on;
+        },
+    });
+});
+console.log("GSAP loaded:", typeof gsap !== "undefined");
 

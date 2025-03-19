@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}x-data :class="$store.darkMode.on && 'dark'"">
 <head>
     <meta charset="utf-8">
     <meta name="application-name" content="{{ config('app.name') }}">
@@ -8,8 +8,8 @@
     <title>{{ config('app.name') }}</title>
 
     @filamentStyles
-    @vite('resources/css/app.css')
-
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+</head>
 </head>
 <body x-data="{darkMode: $persist(false)}" :class="{'dark': darkMode === true }" class="antialiased">    
 
@@ -18,12 +18,10 @@
         @yield('content') <!-- Toto je místo pro slot -->
     </main>
 
-
-    @filamentScripts
-    @stack('scripts')
-    @vite('resources/js/app.js')
-<script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/persist@3.x.x/dist/cdn.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/ScrollToPlugin.min.js"></script>
+    @stack('scripts')
+    @livewireScripts
+    @filamentScripts
 </body>
 </html>
