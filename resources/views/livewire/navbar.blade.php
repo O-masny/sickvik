@@ -1,13 +1,8 @@
 <nav class="fixed bottom-0 left-0 w-full bg-white shadow-md shadow-gray-300 z-[1000]">
     <div class="md:h-16 h-20 mx-auto md:px-4 container flex items-center justify-between">
         
-        <div class=" items-center left-0 my-10  flex justify-center">
-                <img src="{{ asset('assets/logo/logo.svg') }}"width="70"height="70" alt="Logo" >
+       <img src="{{ asset('assets/logo/logo.svg') }}"width="70"height="70" alt="Logo" >
             @livewire('language-switcher')
-            @livewire('theme-switcher')
-  
-        </div>
-         
 
       <!-- Navigační položky (uprostřed) -->
         <div class="hidden md:flex text-gray-500 flex-1 justify-center">
@@ -19,6 +14,8 @@
                 <li class="hover:text-indigo-400"><a href="#">Contact</a></li>
             </ul>
         </div>
+                @include("components.socials")
+
      <div class="absolute flex flex-row justify-evenly items-center right-0">
 <div class="w-10"></div>
             <!-- Menu button pro mobilní zařízení -->
