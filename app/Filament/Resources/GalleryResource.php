@@ -44,9 +44,17 @@ public static function form(Forms\Form $form): Forms\Form
     ->image()
     ->directory('gallery')
     ->disk('public')
-    >required()
-    ->getUploadedFileNameForStorageUsing(fn ($file) => Str::random(20) . '.' . $file->getClientOriginalExtension()), // Generuje náhodný název souboru
-        ]);
+    ->required()
+    ->getUploadedFileNameForStorageUsing(fn ($file) => Str::random(20) . '.' . $file->getClientOriginalExtension()) // Generuje náhodný název souboru
+    ->afterStateUpdated(function ($state, $set, $get) {
+        if ($state) {
+            $filePath = storage_path("app/public/gallery/{$state}");
+            if (file_exists($filePath)) {
+                $set('file_size', filesize($filePath));
+            }
+        }
+    }),   
+]);
 }
 
 

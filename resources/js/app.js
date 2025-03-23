@@ -1,15 +1,16 @@
+
+import Alpine from "alpinejs";
+import persist from '@alpinejs/persist';
 import "./animation"
 import "./scroll"
-document.addEventListener('alpine:init', () => {
+import "./slider"
 
-    Alpine.store('darkMode', {
+Alpine.plugin(persist);
 
-        on: Alpine.$persist(true).as('darkMode_on'),
-
-        toggle() {
-            this.on = !this.on;
-        },
-    });
+Alpine.store('darkMode', {
+    on: Alpine.$persist(true).as('darkMode_on'),
+    toggle() {
+        this.on = !this.on;
+    },
 });
-console.log("GSAP loaded:", typeof gsap !== "undefined");
 

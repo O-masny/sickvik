@@ -32,25 +32,22 @@ class GalleryDetail extends Component
     }
 
     public function render()
-    {        
-        $query = Gallery::query();
-
-        if (!empty($this->search)) {
-            $query->where('title', 'like', '%' . $this->search . '%');
-        }
-
-     if (!empty($this->tag)) {
-        $query->whereHas('tags', function ($q) {
-            $q->where('tags.id', $this->tag); // ⚠️ Explicitně určujeme tabulku "tags"
-        });
-    }
-
-        $artworks = $query->orderBy($this->sortBy, 'desc')
-                          ->paginate(8);
+    {
+        $artworks = Gallery::query()
+            ->when($this->search, function ($q) {
+                $q->where('title', 'like', '%' . $this->search . '%');
+            })
+            ->when($this->tag, function ($q) {
+                $q->whereHas('tags', function ($q2) {
+                    $q2->where('tags.id', $this->tag);
+                });
+            })
+            ->orderBy($this->sortBy, $this->sortDirection)
+            ->paginate(8);
 
         return view('livewire.gallery-detail', [
             'artworks' => $artworks,
-            'tags' => $this->tags
+            'tags'     => $this->tags,
         ]);
     }
 

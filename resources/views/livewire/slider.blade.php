@@ -14,4 +14,4 @@
     </div>
 </div>
 
-@vite(['resources/js/slider.js'])
+@vite("resources/js/app.js")

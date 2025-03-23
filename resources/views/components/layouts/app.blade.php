@@ -8,6 +8,7 @@
     <title>{{ config('app.name') }}</title>
 
     @filamentStyles
+    @vite("resources/js/app.js")
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 </head>
@@ -18,9 +19,7 @@
         @yield('content') <!-- Toto je místo pro slot -->
     </main>
 
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/ScrollToPlugin.min.js"></script>
-    @stack('scripts')
+@stack('scripts')
     @livewireScripts
     @filamentScripts
 </body>

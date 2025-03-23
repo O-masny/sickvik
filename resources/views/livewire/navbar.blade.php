@@ -1,23 +1,45 @@
 <nav class="fixed bottom-0 left-0 w-full bg-white shadow-md shadow-gray-300 z-[1000]">
     <div class="md:h-16 h-20 mx-auto md:px-4 container flex items-center justify-between">
         
-       <img src="{{ asset('assets/logo/logo.svg') }}"width="70"height="70" alt="Logo" >
-            @livewire('language-switcher')
+      <div class=" flex flex-row items-center">
+      <img src="{{ asset('assets/logo/logo.svg') }}"width="70"height="70" alt="Logo" >
+       @livewire('language-switcher')
+      </div>
 
       <!-- Navigační položky (uprostřed) -->
-        <div class="hidden md:flex text-gray-500 flex-1 justify-center">
-            <ul class="flex font-semibold space-x-6">
-                <li class="text-indigo-500"><a href="#">Dashboard</a></li>
-                <li class="hover:text-indigo-400"><a href="#">Search</a></li>
-                <li class="hover:text-indigo-400"><a href="#">Explore</a></li>
-                <li class="hover:text-indigo-400"><a href="#">About</a></li>
-                <li class="hover:text-indigo-400"><a href="#">Contact</a></li>
-            </ul>
-        </div>
-                @include("components.socials")
+    <div class="hidden md:flex text-gray-500 flex-1 justify-center">
+    <ul class="flex font-august text-2xl font-bold space-x-6">
+        <li class="text-indigo-500">
+            <a  href="{{ route('home') }}">{{ __('messages.home') }}</a>
+        </li>
+        <li class="hover:text-indigo-400">
+            <a href="{{ route('about') }}" >
+                {{ __('messages.about') }}
+            </a>
+        </li>
+        <li class="hover:text-indigo-400">
+            <a  href="{{ route('artworks') }}">{{ __('messages.gallery') }}</a>
+        </li>
+        <li class="hover:text-indigo-400">
+            <a  href="{{ route('contact') }}">{{ __('messages.contact') }}</a>
+        </li>
+        <li class="hover:text-indigo-400">
+            <a  href="{{ route('care') }}">{{ __('messages.knowhow') }}</a>
+        </li>
+    </ul>
+</div>
 
+      <!-- Sociální ikony napravo na velkých zařízeních -->
+        <div class="hidden md:flex md:justify-end">
+            @include("components.socials")
+        </div>
+
+        <!-- Sociální ikony uprostřed na menších zařízeních -->
+        <div class="md:hidden flex justify-center items-center">
+            @include("components.socials")
+        </div>
      <div class="absolute flex flex-row justify-evenly items-center right-0">
-<div class="w-10"></div>
+        <div class="w-10"></div>
             <!-- Menu button pro mobilní zařízení -->
             <button class="md:hidden p-3 rounded-md bg-gray-100 hover:bg-gray-200 transition"
                     wire:click="toggleMenu">
@@ -31,10 +53,10 @@
     </div>
 
     <!-- Mobile Drawer Menu (zprava) -->
-    <div class="fixed inset-0 bg-black bg-opacity-50 z-[1050]" wire:click="closeMenu" wire:ignore.self
-        x-data="{ open: @entangle('menuOpen') }"
-        x-show="open"
-        x-transition.opacity>
+<div class="fixed inset-0 bg-black bg-opacity-50 z-[1050] md:hidden" wire:click="closeMenu" wire:ignore.self
+    x-data="{ open: @entangle('menuOpen') }"
+    x-show="open"
+    x-transition.opacity>
         
         <div class="fixed right-0 top-0 w-64 h-full bg-white shadow-md transform transition-transform flex flex-col items-center justify-center"
             x-show="open"

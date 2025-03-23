@@ -1,4 +1,4 @@
-<div class="relative  z-50">
+<div class=" z-50">
    <button wire:click="toggleLanguage"
            wire:navigate.hover
             class="w-8 h-8 shadow-lg flex items-center justify-center transition relative overflow-hidden bg-gray-200">

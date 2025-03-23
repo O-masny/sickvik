@@ -17,13 +17,15 @@ Route::get('/artworks/{id}', [GalleryController::class, 'show'])->name('artworks
 
 Route::get('/contact', function () {
     return view('contact.index');
-});
+})->name("contact");
+
 Route::get('/care', function () {
     return view('care.index');
-});
+})->name("care");
+
 Route::get('/about', function () {
     return view('about.index');
-});
+})->name("about");
 
 Route::get(
     'locale/{locale}',

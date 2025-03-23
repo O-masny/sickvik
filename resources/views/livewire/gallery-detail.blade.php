@@ -1,9 +1,3 @@
-<div class="container mx-auto p-4">
-    <!-- Hlavní nadpis přes celou výšku obrazovky -->
-    <div class="h-screen flex items-center justify-center">
-        <h1 class="text-5xl font-bold text-center">{{ __('messages.gallery')}}</h1>
-    </div>
-
     <div class="flex flex-col md:flex-row gap-6">
         <!-- Filtrační panel -->
         <div class="w-full md:w-1/4 bg-gray-100 p-4 rounded-lg shadow-md">
@@ -42,9 +36,9 @@
                     @foreach ($artworks as $art)
                         <div class="relative group">
                            <a href="{{ url('/artworks/' . $art->id) }}">
-    <img src="{{ asset('storage/gallery/' . $art->file_name) }}" 
-         class="w-full h-auto rounded shadow-lg transition-transform transform group-hover:scale-110 hover:opacity-75">
-</a>
+                        <img src="{{ asset('storage/gallery/' . $art->file_name) }}" 
+                            class="w-full h-auto rounded shadow-lg transition-transform transform group-hover:scale-110 hover:opacity-75">
+                    </a>
                             <p class="mt-2 text-center text-sm font-bold">{{ $art->title }}</p>
 
                             <!-- Tagy jako chipy -->
@@ -63,4 +57,4 @@
             </div>
         </div>
     </div>
-</div>
+

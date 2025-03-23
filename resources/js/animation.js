@@ -1,9 +1,52 @@
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
+import ScrollToPlugin from "gsap/ScrollToPlugin";
 
-gsap.registerPlugin(ScrollTrigger);
 
 document.addEventListener("DOMContentLoaded", function () {
+    gsap.registerPlugin(ScrollToPlugin, ScrollTrigger);
+    function gsapFunction() {
+        const tl = gsap.timeline({});
+        const cardsContainer = document.querySelector(".cards--container");
+        const cards = document.querySelectorAll(".card");
+
+        cards.forEach((el, index) => {
+            let scale = Number(0.9 + 0.025 * index).toFixed(2);
+            let rotation = 10;
+
+            gsap.to(el, {
+                scale,
+                rotationX: rotation,
+                transformOrigin: "top center",
+                scrollTrigger: {
+                    trigger: el,
+                    start: "top " + (60 + 70 * index),
+                    end: "bottom+=140px 62%",
+                    endTrigger: cardsContainer,
+                    scrub: true,
+                    pin: el,
+                    pinSpacing: false,
+                    id: index,
+
+                    onEnter: () => {
+                        el.style.backgroundColor = "white";
+                        el.style.border = "1px solid black";
+                    },
+                    onLeaveBack: () => {
+                        el.style.backgroundColor = "var(--yellow-saffron)";
+                        el.style.border = "1px solid transparent";
+                    }
+                }
+            });
+        });
+    }
+
+    if (gsap) {
+        gsapFunction();
+    }
+
+
+
     gsap.set("#homepage-content", { opacity: 0 });
     gsap.set(".hero-subtitle", { opacity: 0, y: 50 });
     // 🔹 Nastavení výchozích hodnot pro skrytí
@@ -28,7 +71,7 @@ document.addEventListener("DOMContentLoaded", function () {
         delay: 2.5 // Čeká na splash animaci
     });
 
-   
+
 
     // 🔥 Slide-up efekt pro jednotlivé obrázky galerie
     gsap.utils.toArray(".gallery-item").forEach((item, i) => {

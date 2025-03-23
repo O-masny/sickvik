@@ -37,7 +37,7 @@ export default {
             },
             fontFamily: {
                 'share-regular': ['Share-Regular', 'sans-serif'],
-                'share-mono': ['Share-TechMono', 'serif'],
+                'share-mono': ['Share-TechMono', ''],
                 'august': ['Hey-august', 'serif'],
 
             },

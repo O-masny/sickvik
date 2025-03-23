@@ -1,12 +1,14 @@
 @extends('components.layouts.app')
+<div class="container mx-auto p-4">
+    <!-- Hlavní nadpis přes celou výšku obrazovky -->
+    <div class="h-screen flex items-center justify-center">
+        <h1 class="text-5xl font-bold text-center">{{ __('messages.gallery')}}</h1>
+    </div>
 
-@section('content')
 <div>
-      
-    @livewire('gallery-detail')
-
+   @livewire('gallery-detail', ['images' => $artworks])
 </div>
-@endsection
+</div>
 
 
 

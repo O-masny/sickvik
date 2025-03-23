@@ -16,8 +16,9 @@ return new class extends Migration
             $table->string('title');
             $table->text('description')->nullable();
             $table->string('file_name');
-            $table->string('file_size');
             $table->string('file_format');
+                $table->integer('file_size')->nullable()->change();
+
             $table->timestamps();
         });
     }

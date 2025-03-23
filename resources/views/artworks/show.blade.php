@@ -1,7 +1,7 @@
 @extends('components.layouts.app')
 @section('content')
 
-<div x-data="{ hideContent: false }">
+<div x-data="{ hideContent: false }" wire:navigate.hover>
     <div class="container mx-auto p-4">
         <div class="flex flex-col md:flex-row gap-6">
             <!-- Image -->

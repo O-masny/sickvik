@@ -11,8 +11,9 @@ class GalleryController extends Controller
 {
     public function index()
     {
-        $images =  Gallery::with('tags')->latest()->get();
-        return view('artworks.index', compact('images'));
+            $artworks = Gallery::with('tags')->latest()->get();
+            $tags   = \App\Models\Tag::all();
+            return view('artworks.index', compact('artworks', 'tags'));
     }
 
     public function show($id)
