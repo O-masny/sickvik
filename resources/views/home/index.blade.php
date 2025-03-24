@@ -18,13 +18,7 @@
     </div>
     <div class="h-20"></div>
 
-      <!-- aboutMe -->
-    <div class="flex-col justify-center items-center h-1/2 text-center">
-            <h1 class=" text-black text-7xl  hover-underline inline-block">{{ __('messages.about') }}</h1>
-            <p class="text-lg mt-4 text-gray-700 px-20">
-            {{ file_get_contents(resource_path('views/content/about_me_description.txt')) }}
-            </p>
-    </div>
+
     <div class="relative w-full h-screen flex justify-center items-center bg-cover bg-center text-white" 
         style="background-image: url('/assets/ink_2.png');">
         
@@ -40,11 +34,35 @@
 >
                 <h1 class="font-mono bg-black rounded-full py-4 px-6 text-2xl text-white">Přejít do galerie</h1>
             </a>      
-            </div>  
+ </div>  
+<div class="h-15"></div>
 
-<div class="h-screen">
-
+<div class="h-1/2">
 </div>
+<section id="sectionPin" class="relative h-[700vh] overflow-visible scroll-smooth">
+    <div class=" bg-black ">
+      <div class="h-24">    </div>
+        @include("components.horizontal_content")
+    </div>
+</section>
+
+<section id="sectionPin" class="relative overflow-visible">
+    <div class="pin-wrap-sticky flex flex-col items-start p-10">
+      
+    <model-viewer 
+            id="girl-model"
+            src="{{ asset('assets/3d/model_girl.glb') }}"
+            ar
+            camera-orbit="0deg 90deg 3m"
+            field-of-view="30deg"
+            class="w-full h-full">
+        </model-viewer>
+    </div>
+    </section>
+</div>
+<div
+class="h-screen"></div>
+
 </div>
 
 @endsection
