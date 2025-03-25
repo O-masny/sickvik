@@ -228,11 +228,39 @@ HTML CSS JS Result Skip Results Iframe *,
     animation-timeline: scroll(root block);
 }
 
+.model-viewer::part(scene) {
+    transform: rotateX(180deg);
+}
+
+#floating-text {
+    transform-style: preserve-3d;
+    transition: transform 0.4s ease;
+}
+
 #sectionPin {
     height: 500vh;
     overflow: visible;
     view-timeline-name: --section-pin-tl;
     view-timeline-axis: block;
+}
+
+#sectionModelPin {
+    height: 400vh;
+    overflow: visible;
+    view-timeline-name: --section-pin-tl;
+    view-timeline-axis: block;
+}
+
+.scroll-container {
+    height: 400vh;
+    /* prostor pro scroll */
+    position: relative;
+}
+
+.sticky {
+    position: sticky;
+    top: 0;
+    height: 100vh;
 }
 
 .pin-wrap-sticky {
@@ -258,6 +286,8 @@ HTML CSS JS Result Skip Results Iframe *,
     animation-range: contain 0% contain 100%;
     scrollbar-width: none;
     -ms-overflow-style: none;
+    overflow: hidden;
+    /* ⬅ přidej tohle */
 }
 
 .glassmorphism {

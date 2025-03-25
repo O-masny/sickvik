@@ -35,35 +35,16 @@
                 <h1 class="font-mono bg-black rounded-full py-4 px-6 text-2xl text-white">Přejít do galerie</h1>
             </a>      
  </div>  
-<div class="h-15"></div>
+    <div class="h-15"></div>
 
-<div class="h-1/2">
-</div>
-<section id="sectionPin" class="relative h-[700vh] overflow-visible scroll-smooth">
-    <div class=" bg-black ">
-      <div class="h-24">    </div>
-        @include("components.horizontal_content")
-    </div>
-</section>
-
-<section id="sectionPin" class="relative overflow-visible">
-    <div class="pin-wrap-sticky flex flex-col items-start p-10">
-      
-    <model-viewer 
-            id="girl-model"
-            src="{{ asset('assets/3d/model_girl.glb') }}"
-            ar
-            camera-orbit="0deg 90deg 3m"
-            field-of-view="30deg"
-            class="w-full h-full">
-        </model-viewer>
-    </div>
-    </section>
-</div>
-<div
-class="h-screen"></div>
-
-</div>
-
+        <div class="h-1/2">
+        </div>
+            <div class=" bg-black ">
+            <div class="h-24">    </div>
+                @include("components.horizontal_content")
+            </div>        
+           @include("components.model_viewer")
+        <div class="h-screen"></div>
+</div>     
 @endsection
 @vite("resources/css/app.css")
