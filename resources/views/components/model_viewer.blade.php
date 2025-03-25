@@ -3,7 +3,7 @@
         <div class="sticky left-0 right-0 bottom-0 h-screen w-full z-10">
 <div id="floating-text"
      class="absolute top-12 left-12 text-yellow-400 text-6xl font-extrabold glassmorphism pointer-events-none z-20 shadow-xl">
-  Tvé<br>jméno/model
+I create trends
 </div>
     <model-viewer 
         id="model-viewer"

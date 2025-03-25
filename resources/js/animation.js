@@ -6,8 +6,6 @@ import { trackProgress } from 'https://esm.sh/@bramus/sda-utilities@1';
 
 document.addEventListener("DOMContentLoaded", function () {
     gsap.registerPlugin(ScrollToPlugin, ScrollTrigger);
-    const modelViewer = document.getElementById("model-viewer");
-    const floatingText = document.getElementById("floating-text");
 
     gsap.to("#floating-text", {
         scrollTrigger: {
@@ -56,7 +54,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 }),
                 fill: "forwards",
                 rangeStart: "contain 0%",
-                rangeEnd: "contain 60%",
+                rangeEnd: "contain 100%",
             }
         );
 
