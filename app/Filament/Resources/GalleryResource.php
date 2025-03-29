@@ -4,17 +4,35 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\GalleryResource\Pages;
 use App\Models\Gallery;
-use Filament\Forms;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
-use Filament\Forms\Components\Select;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Infolists\Components\ImageEntry;
+use Filament\Forms;
+use Filament\Forms\Components\Placeholder;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\View;
+use Illuminate\Support\Facades\Log;
+use Spatie\Image\Image;
+use Spatie\Image\Enums\ImageFormat;
+use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
+use Filament\Tables\Columns\SpatieMediaLibraryImageColumn;
 
 class GalleryResource extends Resource
+{   
+    private static function saveResizedWebp($src, $newWidth, $path)
 {
+    $width = imagesx($src);
+    $height = imagesy($src);
+    $newHeight = intval(($newWidth / $width) * $height);
+
+    $resized = imagecreatetruecolor($newWidth, $newHeight);
+    imagecopyresampled($resized, $src, 0, 0, 0, 0, $newWidth, $newHeight, $width, $height);
+    imagewebp($resized, $path, 80);
+    imagedestroy($resized);
+}
     protected static ?string $model = Gallery::class;
 
 protected static ?string $navigationIcon = 'heroicon-o-photo';  // Například 'photo'
@@ -28,7 +46,7 @@ public static function form(Forms\Form $form): Forms\Form
                 ->label('Title')
                 ->required()
                 ->maxLength(255),
-
+         
             Forms\Components\TextArea::make('description')
                 ->label('Description')
                 ->nullable()
@@ -39,34 +57,25 @@ public static function form(Forms\Form $form): Forms\Form
                 ->multiple()
                 ->preload(),
 
-    Forms\Components\FileUpload::make('file_name')
-    ->label('Image')
-    ->image()
-    ->directory('gallery')
-    ->disk('public')
-    ->required()
-    ->getUploadedFileNameForStorageUsing(fn ($file) => Str::random(20) . '.' . $file->getClientOriginalExtension()) // Generuje náhodný název souboru
-    ->afterStateUpdated(function ($state, $set, $get) {
-        if ($state) {
-            $filePath = storage_path("app/public/gallery/{$state}");
-            if (file_exists($filePath)) {
-                $set('file_size', filesize($filePath));
-            }
-        }
-    }),   
+             Forms\Components\Hidden::make('slider_image'),
+             Forms\Components\Hidden::make('detail_image'),
+            SpatieMediaLibraryFileUpload::make('image')
+                ->label('Obrázek')
+                ->image()
+                ->collection('gallery')
+                ->conversion('media-webp') // nebo 'slider', 'detail'
+                ->responsiveImages()
+                ->required()
 ]);
 }
-
-
 
     public static function table(Tables\Table $table): Tables\Table
     {
         return $table
             ->columns([
-                Tables\Columns\ImageColumn::make('file_name')
-                     ->label('Image')
-                    ->disk('public')
-                    ->state(fn (Gallery $record): ?string => $record->file_name ? asset("storage/gallery/{$record->file_name}") : null),
+               SpatieMediaLibraryImageColumn::make('image')
+                ->label('Obrázek')
+                ->collection('gallery'),
                 Tables\Columns\TextColumn::make('title')->sortable()->searchable(),
                 Tables\Columns\TextColumn::make('tags.name')->label('Tagy')->separator(', '),
                 Tables\Columns\TextColumn::make('description')
