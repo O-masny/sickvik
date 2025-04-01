@@ -16,6 +16,16 @@
     'knowhow' => 'Know-how',
     'dashboard' => 'Nástěnka',
     'search' => 'Hledat',
-    'explore' => 'Prozkoumat', 
+    'explore' => 'Prozkoumat',  
+    'Kontakt'=> 'Kontakt',
+    'Máš otázku nebo projekt? Napiš mi a ozvu se zpět co nejdřív.'=> 'Máš otázku nebo projekt? Napiš mi a ozvu se zpět co nejdřív.',
+    'Kontaktuj mě'=> 'Kontaktuj mě',
+    'Napiš mi zprávu'=> 'Napiš mi zprávu',
+    'Jméno'=> 'Jméno',
+    'Email'=> 'Email',
+    'Zpráva'=> 'Zpráva',
+    'Odeslat'=> 'Odeslat',
+    'Zpět'=> 'Zpět',
+    'Díky! Ozvu se co nejdřív.'=> 'Díky! Ozvu se co nejdřív.'
 ];
 ?>

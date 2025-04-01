@@ -7,27 +7,27 @@
       </div>
 
       <!-- Navigační položky (uprostřed) -->
-    <div class="hidden md:flex text-gray-500 flex-1 justify-center">
-    <ul class="flex font-august text-2xl font-bold space-x-6">
-        <li class="text-indigo-500">
-            <a  href="{{ route('home') }}">{{ __('messages.home') }}</a>
-        </li>
-        <li class="hover:text-indigo-400">
-            <a href="{{ route('about') }}" >
-                {{ __('messages.about') }}
-            </a>
-        </li>
-        <li class="hover:text-indigo-400">
-            <a  href="{{ route('artworks') }}">{{ __('messages.gallery') }}</a>
-        </li>
-        <li class="hover:text-indigo-400">
-            <a  href="{{ route('contact') }}">{{ __('messages.contact') }}</a>
-        </li>
-        <li class="hover:text-indigo-400">
-            <a  href="{{ route('care') }}">{{ __('messages.knowhow') }}</a>
-        </li>
-    </ul>
-</div>
+        <div class="hidden  md:flex text-gray-500 flex-1 justify-center">
+            <ul class="flex font-august text-2xl font-bold space-x-6">
+                <li class="text-indigo-500">
+                <a  href="{{ route('home') }}">{{ __('messages.home') }}</a>
+            </li>
+            <li class="hover:text-indigo-400">
+                <a href="{{ route('about') }}" >
+                    {{ __('messages.about') }}
+                </a>
+            </li>
+            <li class="hover:text-indigo-400">
+                <a  href="{{ route('artworks') }}">{{ __('messages.gallery') }}</a>
+            </li>
+            <li class="hover:text-indigo-400">
+                <a  href="{{ route('contact') }}">{{ __('messages.contact') }}</a>
+            </li>
+            <li class="hover:text-indigo-400">
+                <a  href="{{ route('care') }}">{{ __('messages.knowhow') }}</a>
+            </li>
+                </ul>
+        </div>
 
       <!-- Sociální ikony napravo na velkých zařízeních -->
         <div class="hidden md:flex md:justify-end">
@@ -84,10 +84,10 @@
 
             <!-- Drawer Links (vycentrované na střed obrazovky) -->
             <ul class="mt-20 space-y-6 text-lg text-gray-800 text-center w-full">
-                <li><a href="#"wire:navigate.hover wire:click="closeMenu">Dashboard</a></li>
-                <li><a href="#"wire:navigate.hover wire:click="closeMenu">Search</a></li>
-                <li><a href="#"wire:navigate.hover wire:click="closeMenu">Explore</a></li>
-                <li><a href="#"wire:navigate.hover wire:click="closeMenu">About</a></li>
+                <li><a href="{{ route('about') }}"wire:navigate.hover wire:click="closeMenu">Dashboard</a></li>
+                <li><a href="{{ route('about') }}"wire:navigate.hover wire:click="closeMenu">Search</a></li>
+                <li><a href="{{ route('about') }}"wire:navigate.hover wire:click="closeMenu">Explore</a></li>
+                <li><a href="{{ route('about') }}" wire:navigate.hover wire:click="closeMenu">About</a></li>
                 <li><a href="#"wire:navigate.hover wire:click="closeMenu">Contact</a></li>
             </ul>
         </div>

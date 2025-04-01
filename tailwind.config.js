@@ -18,6 +18,21 @@ export default {
     theme: {
 
         extend: {
+            animation: {
+                'fade-in': 'fadeIn 1s ease-out forwards',
+                'bg-fade-in': 'fadeIn 2s ease-out forwards',
+            },
+            keyframes: {
+                fadeIn: {
+                    '0%': { opacity: 0 },
+                    '100%': { opacity: 1 },
+                },
+            },
+            perspective: {
+                '1000': '1000px',
+            },
+            transform: ['hover', 'focus'],
+            transformStyle: ['responsive'],
             screens: {
                 sm: '480px',
                 md: '768px',

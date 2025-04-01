@@ -22,8 +22,29 @@ function initSlider() {
     });
 
     addHoverEffects();
+    initLazyImages(); // ✅ lazy-load obrázků
+
 }
 
+function initLazyImages() {
+    const images = document.querySelectorAll(".lazy-image");
+
+    images.forEach(img => {
+        if (!img.src && img.dataset.src) {
+            img.src = img.dataset.src;
+
+            img.onload = () => {
+                img.classList.remove("opacity-0");
+                img.parentElement.classList.remove("animate-pulse", "bg-gray-200");
+            };
+
+            if (img.complete) {
+                img.classList.remove("opacity-0");
+                img.parentElement.classList.remove("animate-pulse", "bg-gray-200");
+            }
+        }
+    });
+}
 function addHoverEffects() {
     document.querySelectorAll("#slider img").forEach(img => {
         if (!img.dataset.listenerAdded) {

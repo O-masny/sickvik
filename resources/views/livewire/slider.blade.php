@@ -1,27 +1,19 @@
-<div class="overflow-x-hidden relative w-full h-[400px] bg-white">
-    <div id="slider" class="flex w-[400px] h-full">
+<div
+    class="relative w-full h-[400px] overflow-x-hidden bg-white"
+    x-data
+    x-init="$nextTick(() => window.dispatchEvent(new Event('sliderReady')))"
+>
+    <div id="slider" class="flex h-full">
         @foreach($images as $image)
-            <div class="min-w-[250px] h-[350px] mx-1 relative overflow-hidden">
-                <img 
-                    src="{{ asset('storage/gallery/blurred-' . $image) }}" 
-                    alt="Slide" 
-                    class="w-full h-full object-cover rounded-lg transition-transform duration-500 will-change-transform cursor-pointer blur-up"
-                    data-src="{{ asset('storage/gallery/' . $image) }}" 
-                    loading="lazy" 
+            <div class="min-w-[250px] h-[350px] mx-1 relative overflow-hidden rounded-lg bg-gray-200 animate-pulse shimmer-image">
+                <img
+                    data-src="{{ $image }}"
+                    alt="Obrázek"
+                    class="lazy-image absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-700 rounded-lg"
+                    loading="lazy"
                     decoding="async"
-                    data-url="{{ route('artworks.show', ['id' => $loop->index]) }}"
-                >
+                />
             </div>
         @endforeach
     </div>
 </div>
-
-<script>
-    const images = document.querySelectorAll('.blur-up');
-    images.forEach(image => {
-        image.onload = () => {
-            image.classList.remove('blur-up');
-            image.src = image.dataset.src;
-        };
-    });
-</script>

@@ -1,5 +1,6 @@
 @extends('components.layouts.app')
 
+@section('content')
 <div class="body" x-data="gsapAnimation">
 
   <div class="cards--container">
@@ -103,5 +104,6 @@
     <h1 class="heading-2">Heading</h1>
       </div>
     </body>
+@endsection('content')
 
 

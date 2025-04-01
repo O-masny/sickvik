@@ -16,6 +16,15 @@ return [
     'contact' => 'Contact',
     'knowhow' => 'Know-how',
     'dashboard' => 'Dashboard',
-    'search' => 'Search',
-    'explore' => 'Explore',
+    'search' => 'Search',  
+    'Kontakt'=> 'Contact',
+  'Máš otázku nebo projekt? Napiš mi a ozvu se zpět co nejdřív.'=> 'Have a question or a project? Drop me a message and I’ll get back to you.',
+  'Kontaktuj mě'=> 'Contact me',
+  'Napiš mi zprávu'=> 'Send me a message',
+  'Jméno'=> 'Name',
+  'Email'=> 'Email',
+  'Zpráva'=> 'Message',
+  'Odeslat'=> 'Send',
+  'Zpět'=> 'Back',
+  'Díky! Ozvu se co nejdřív.'=> 'Thanks! I’ll get back to you soon.'
 ];

@@ -15,22 +15,27 @@ class Slider extends Component
         $this->loadImages();
     }
 
-    public function loadImages()
-    {
-        // Cache výsledky na 10 minut pro rychlejší načítání
-        $this->images = Cache::remember('gallery_images', 600, function () {
-            $directory = public_path('assets/gallery');
-            $files = File::files($directory);
+ public function loadImages()
+{
+    // Cache výsledky na 10 minut pro rychlejší načítání
+    $this->images = Cache::remember('gallery_images', 600, function () {
+        $directory = public_path('storage/uploads');
+        if (!File::exists($directory)) {
+            return [];
+        }
 
-            return collect($files)
-                ->filter(fn($file) => in_array($file->getExtension(), ['jpg', 'jpeg', 'png', 'webp']))
-                ->map(fn($file) => '/assets/gallery/' . $file->getFilename())
-                ->toArray();
-        });
+        $files = File::files($directory);
 
-        // Emit event pro JS (restart slideru po načtení obrázků)
-        $this->dispatch('imagesLoaded');
-    }
+        return collect($files)
+            ->filter(fn($file) => in_array($file->getExtension(), ['jpg', 'jpeg', 'png', 'webp']))
+            ->map(fn($file) => '/storage/uploads/' . $file->getFilename())
+            ->values()
+            ->toArray();
+    });
+
+    $this->dispatch('imagesLoaded');
+}
+
 
     public function refreshImages()
     {

@@ -97,32 +97,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-    gsap.set("#homepage-content", { opacity: 0 });
-    gsap.set(".hero-subtitle", { opacity: 0, y: 50 });
-    // 🔹 Nastavení výchozích hodnot pro skrytí
-    gsap.set(".fade-in", { opacity: 0, y: 50 });
-
-
-    gsap.to("#splash", {
-        delay: 2, // Zobrazit po dobu 2s
-        opacity: 0,
-        duration: 1, // Fade-out trvá 1s
-        ease: "power2.out",
-        onComplete: () => {
-            document.getElementById("splash").style.display = "none"; // Skryje splash
-        }
-    });
-
-    // 🟢 Postupné zobrazení obsahu
-    gsap.to("#homepage-content", {
-        opacity: 1,
-        duration: 5,
-        ease: "none",
-        delay: 2.5 // Čeká na splash animaci
-    });
-
-
-
     // 🔥 Slide-up efekt pro jednotlivé obrázky galerie
     gsap.utils.toArray(".gallery-item").forEach((item, i) => {
         gsap.from(item, {

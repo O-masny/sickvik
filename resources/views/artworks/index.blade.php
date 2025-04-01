@@ -1,4 +1,6 @@
 @extends('components.layouts.app')
+@section('content')
+
 <div class="container mx-auto p-4">
     <!-- Hlavní nadpis přes celou výšku obrazovky -->
     <div class="h-screen flex items-center justify-center">
@@ -9,6 +11,7 @@
    @livewire('gallery-detail', ['images' => $artworks])
 </div>
 </div>
+@endsection('content')
 
 
 
