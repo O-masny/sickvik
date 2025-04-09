@@ -1,7 +1,6 @@
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import ScrollToPlugin from "gsap/ScrollToPlugin";
-import { trackProgress } from 'https://esm.sh/@bramus/sda-utilities@1';
 
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -35,10 +34,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
         /* Sticky element, který zůstane v viewportu během horizontálního posunu */
         const pinWrapSticky = document.querySelector(".pin-wrap-sticky");
-        pinWrapSticky.style.height = "100vh";
-        pinWrapSticky.style.width = "98vw";
+
         pinWrapSticky.style.position = "sticky";
-        pinWrapSticky.style.top = "0";
         pinWrapSticky.style.overflowX = "hidden";
 
 

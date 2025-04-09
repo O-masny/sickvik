@@ -14,11 +14,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-     $loader = new FileLoader(new Filesystem(), base_path('lang'));
-     $translator = new Translator($loader, app()->getLocale());
+        $loader = new FileLoader(new Filesystem(), base_path('lang'));
+        $translator = new Translator($loader, app()->getLocale());
 
-     app()->instance('translator', $translator);   
-     }
+        app()->instance('translator', $translator);
+    }
 
     /**
      * Bootstrap any application services.

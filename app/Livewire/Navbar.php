@@ -6,16 +6,27 @@ use Livewire\Component;
 
 class Navbar extends Component
 {
-    public $menuOpen = false;
+    public $menuOpenMobile = false;
+    public $menuOpenDesktop = false;
 
-    public function toggleMenu()
+    public function toggleMenuMobile()
     {
-        $this->menuOpen = !$this->menuOpen;
+        $this->menuOpenMobile = !$this->menuOpenMobile;
     }
 
-    public function closeMenu()
+    public function closeMenuMobile()
     {
-        $this->menuOpen = false;
+        $this->menuOpenMobile = false;
+    }
+
+    public function toggleMenuDesktop()
+    {
+        $this->menuOpenDesktop = !$this->menuOpenDesktop;
+    }
+
+    public function closeMenuDesktop()
+    {
+        $this->menuOpenDesktop = false;
     }
 
     public function render()

@@ -50,6 +50,56 @@ HTML CSS JS Result Skip Results Iframe *,
     position: relative;
 }
 
+.btn-two {
+    color: #FFF;
+    transition: all 0.5s;
+    position: relative;
+}
+
+.btn-two span {
+    z-index: 2;
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.btn-two::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    transition: all 0.5s;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.btn-two::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    transition: all 0.5s;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.btn-two:hover::before {
+    transform: rotate(-45deg);
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.btn-two:hover::after {
+    transform: rotate(45deg);
+    background-color: rgba(255, 255, 255, 0);
+}
+
 .card-content--container {
     grid-column-gap: 80px;
     grid-row-gap: 80px;
@@ -67,6 +117,14 @@ HTML CSS JS Result Skip Results Iframe *,
     width: 100%;
     max-width: 635px;
     display: flex;
+}
+
+.stacked-card {
+    background: var(--yellow-saffron);
+    padding: 2rem;
+    height: 100%;
+    width: 100%;
+    transition: all 0.3s ease;
 }
 
 .card--content {
