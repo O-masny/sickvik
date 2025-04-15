@@ -36,7 +36,6 @@
 
                 {{-- Right --}}
                 <div class="flex items-center space-x-4">
-                    @include("components.socials")
                     <button @click="openDesktop = false" class="p-2 rounded-full hover:bg-white/40 transition">
                         <svg class="w-6 h-6 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -48,7 +47,6 @@
         </template>
     </div>
 
-    {{-- 🔵 Mobile Toggle Button --}}
     <div class="fixed bottom-4 right-4 md:hidden z-[100]">
         <button class="p-3 rounded-md bg-white shadow-md hover:bg-gray-100 transition"
             @click="openMobile = !openMobile">
@@ -58,7 +56,6 @@
         </button>
     </div>
 
-    {{-- 🔵 Mobile Navigation Drawer --}}
     <div x-show="openMobile" x-transition.opacity class="fixed inset-0 bg-black bg-opacity-50 z-[1050]"
         @click.self="openMobile = false">
         <div class="fixed right-0 top-0 w-64 h-full bg-white shadow-md flex flex-col items-center justify-center"
@@ -67,7 +64,7 @@
             x-transition:leave="transform transition ease-in-out duration-300" x-transition:leave-start="translate-x-0"
             x-transition:leave-end="translate-x-full">
 
-            <div class="absolute top-6 w-full flex justify-center">
+            <div class=" top-0 w-full flex justify-center">
                 <a href="{{ route('home') }}">
                     <img src="{{ asset('assets/logo/logo-circle.svg') }}" alt="Logo" class="h-13">
                 </a>
@@ -80,11 +77,21 @@
             </button>
 
             <ul class="mt-20 space-y-6 text-lg text-gray-800 text-center w-full">
-                <li><a href="#" @click="openMobile = false">Dashboard</a></li>
-                <li><a href="#" @click="openMobile = false">Search</a></li>
-                <li><a href="#" @click="openMobile = false">Explore</a></li>
-                <li><a href="#" @click="openMobile = false">About</a></li>
-                <li><a href="#" @click="openMobile = false">Contact</a></li>
+                <div class="hover:bg-black hover:text-white ">
+                    <li><a href="#" @click="openMobile = false" class="">Dashboard</a></li>
+                </div>
+                <div class="hover:bg-black hover:text-white ">
+                    <li><a href="#" @click="openMobile = false">Search</a></li>
+                </div>
+                <div class="hover:bg-black hover:text-white ">
+                    <li><a href="#" @click="openMobile = false">Explore</a></li>
+                </div>
+                <div class="hover:bg-black hover:text-white ">
+                    <li><a href="#" @click="openMobile = false">About</a></li>
+                </div>
+                <div class="hover:bg-black hover:text-white ">
+                    <li><a href="#" @click="openMobile = false">Contact</a></li>
+                </div>
             </ul>
         </div>
     </div>

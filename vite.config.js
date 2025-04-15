@@ -11,5 +11,8 @@ export default defineConfig({
                 'app/Livewire/**',
             ],
         }),
-    ],
+    ], 
+    optimizeDeps: {
+        include: ['three'],
+    },
 })

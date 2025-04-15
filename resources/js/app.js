@@ -1,11 +1,13 @@
 
 import Alpine from "alpinejs";
 import persist from '@alpinejs/persist';
+import intersect from '@alpinejs/intersect'
+import { initInkEffect } from './ink.js';
 import "./animation"
 import "./scroll"
 import "./slider"
 
-Alpine.plugin(persist);
+Alpine.plugin(persist, intersect);
 
 Alpine.store('darkMode', {
     on: Alpine.$persist(true).as('darkMode_on'),
@@ -13,4 +15,5 @@ Alpine.store('darkMode', {
         this.on = !this.on;
     },
 });
+window.initInkEffect = initInkEffect;
 

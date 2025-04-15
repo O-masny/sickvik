@@ -34,7 +34,6 @@
 
             {{-- pravá sekce --}}
             <div class="flex items-center space-x-4">
-                @include("components.socials")
                 <button @click="openDesktop = false" class="p-2 rounded-full hover:bg-white/40 transition">
                     <svg class="w-6 h-6 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"

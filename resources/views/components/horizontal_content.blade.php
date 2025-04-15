@@ -1,4 +1,4 @@
-<section id="sectionPin" class="relative h-[500vh] overflow-visible">
+<section id="sectionPin" class="relative h-[500vh] overflow-visible bg-black">
     <div class="pin-wrap-sticky flex flex-col items-start p-10">
         <div class="pin-wrap flex h-screen w-[400vmax] space-x-10 p-10">
 

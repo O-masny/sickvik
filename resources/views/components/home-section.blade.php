@@ -11,10 +11,12 @@
         @ended="hideSplash">
         <source src="{{ asset('gifs/vid.mp4') }}" type="video/mp4">
     </video>
-
-    <!-- Text in center of splash -->
-    <div class="z-10 text-center">
-        <h1 class="font-share-mono text-7xl animate-fade-in">SickVik</h1>
-        <h2 class="font-august text-4xl mt-2 animate-fade-in delay-500">Viktor Suchomel</h2>
+    <div class="z-10 w-full h-full px-4 sm:px-12 md:px-24 flex items-center justify-center text-center">
+        <h1 class="font-share-mono font-bold leading-none break-words w-full"
+            style="font-size: clamp(2rem, 18vw, 28rem);">
+            <span class="inline-block sm:block">SICKVIK</span>
+            <span class="inline-block sm:block"></span>
+        </h1>
     </div>
+
 </div>

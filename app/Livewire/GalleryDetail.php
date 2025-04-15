@@ -16,6 +16,7 @@ class GalleryDetail extends Component
     public $sortBy = 'created_at';
     public $sortDirection = 'desc';
     public $tags = [];
+    public $filterOpen = false;
 
     protected $queryString = ['search', 'tag', 'sortBy', 'sortDirection'];
 
@@ -30,7 +31,10 @@ class GalleryDetail extends Component
             $this->resetPage(); // Resetuje stránkování při změně filtru
         }
     }
-
+    public function toggleFilter()
+    {
+        $this->filterOpen = !$this->filterOpen;
+    }
     public function render()
     {
         $artworks = Gallery::query()
@@ -47,7 +51,7 @@ class GalleryDetail extends Component
 
         return view('livewire.gallery-detail', [
             'artworks' => $artworks,
-            'tags'     => $this->tags,
+            'tags' => $this->tags,
         ]);
     }
 

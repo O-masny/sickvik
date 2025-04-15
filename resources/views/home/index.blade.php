@@ -3,14 +3,11 @@
 @section('content')
     <div>
         @include("components.home-section")
-
         @include("components.horizontal_content")
 
 
         <div class="relative w-full h-screen flex justify-center items-center bg-cover bg-center text-white"
             style="background-image: url('/assets/ink_2.png');">
-
-
             <h1 class="relative z-10 text-7xl font-bold">{{ __('messages.gallery') }}</h1>
         </div>
 
