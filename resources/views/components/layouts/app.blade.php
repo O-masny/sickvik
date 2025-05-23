@@ -16,6 +16,8 @@
 <body x-data="{darkMode: $persist(false)}" :class="{'dark': darkMode === true }" class="antialiased">    
 
     @livewire('navbar') 
+    @livewire('language-switcher')
+
     <main >
         @yield('content') <!-- Toto je místo pro slot -->
     </main>

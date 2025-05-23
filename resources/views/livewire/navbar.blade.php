@@ -1,14 +1,13 @@
-<nav class="fixed bottom-0 left-0 w-full bg-white shadow-md shadow-gray-300 z-[1000]">
+<nav class="fixed  bottom-0 left-0 w-full bg-white shadow-md shadow-gray-300 z-[1000]">
     <div class="md:h-16 h-20 mx-auto md:px-4 container flex items-center justify-between">
         
       <div class=" flex flex-row items-center">
       <img src="{{ asset('assets/logo/logo.svg') }}"width="70"height="70" alt="Logo" >
-       @livewire('language-switcher')
       </div>
 
       <!-- Navigační položky (uprostřed) -->
     <div class="hidden md:flex text-gray-500 flex-1 justify-center">
-    <ul class="flex font-august text-2xl font-bold space-x-6">
+    <ul class="flex font-mono text-2xl font-bold space-x-6">
         <li class="text-indigo-500">
             <a  href="{{ route('home') }}">{{ __('messages.home') }}</a>
         </li>
@@ -38,6 +37,7 @@
         <div class="md:hidden flex justify-center items-center">
             @include("components.socials")
         </div>
+        
      <div class="absolute flex flex-row justify-evenly items-center right-0">
         <div class="w-10"></div>
             <!-- Menu button pro mobilní zařízení -->
