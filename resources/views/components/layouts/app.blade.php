@@ -21,6 +21,7 @@
     <main >
         @yield('content') <!-- Toto je místo pro slot -->
     </main>
+    @include('components.footer')
 
 @stack('scripts')
     @livewireScripts
