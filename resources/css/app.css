@@ -1,9 +1,29 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@tailwind variants;
 
-HTML CSS JS Result Skip Results Iframe *,
+@layer utilities {
+    .text-display {
+        @apply text-9xl font-bold leading-none tracking-tight font-share-mono;
+    }
+
+    .text-hero {
+        @apply text-7xl font-bold leading-tight font-august;
+    }
+
+    .text-section-title {
+        @apply text-4xl font-semibold tracking-wide font-share-mono;
+    }
+
+    .text-paragraph {
+        @apply text-lg leading-relaxed font-share-regular;
+    }
+
+    .text-caption {
+        @apply text-sm text-tertiary-dark;
+    }
+}
+
 *::after,
 *::before {
     margin: 0;

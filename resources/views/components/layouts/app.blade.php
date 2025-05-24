@@ -14,14 +14,16 @@
 </head>
 </head>
 <body x-data="{darkMode: $persist(false)}" :class="{'dark': darkMode === true }" class="antialiased">    
+    @livewire('splash') 
 
-    @livewire('navbar') 
     @livewire('language-switcher')
 
     <main >
+        @livewire('navbar') 
+
         @yield('content') <!-- Toto je místo pro slot -->
+        @include('components.footer')
     </main>
-    @include('components.footer')
 
 @stack('scripts')
     @livewireScripts

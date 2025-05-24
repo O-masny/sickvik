@@ -24,7 +24,26 @@ export default {
                 lg: '976px',
                 xl: '1440px',
             },
-
+            colors: {
+                primary: {
+                    DEFAULT: '#1C1C1E',
+                    light: '#2C2C2E',
+                    dark: '#000000',
+                    contrast: '#FFFFFF',
+                },
+                secondary: {
+                    DEFAULT: '#FF3D00',
+                    light: '#FF6333',
+                    dark: '#B22A00',
+                    contrast: '#FFFFFF',
+                },
+                tertiary: {
+                    DEFAULT: '#F5F5F7',
+                    light: '#FFFFFF',
+                    dark: '#D1D1D6',
+                    contrast: '#1C1C1E',
+                },
+            },
             fontFamily: {
                 'share-regular': ['Share-Regular', 'sans-serif'],
                 'share-mono': ['Share-TechMono', ''],
@@ -39,9 +58,9 @@ export default {
                 '4xl': '2rem',
             },
             fontSize: {
-                'xs': '0.75rem',  // Výchozí, ale můžete změnit
+                'xs': '0.75rem',
                 'sm': '0.875rem',
-                'base': '1rem',    // Základní velikost textu
+                'base': '1rem',
                 'lg': '1.125rem',
                 'xl': '1.25rem',
                 '2xl': '1.5rem',
@@ -50,6 +69,8 @@ export default {
                 '5xl': '3rem',
                 '6xl': '3.75rem',
                 '7xl': '4.5rem',
+                '8xl': '6rem',
+                '9xl': '8rem',
             }
         }
     },
