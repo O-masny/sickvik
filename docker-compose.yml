@@ -1,0 +1,5 @@
+networks:
+  sickvik:
+
+volumes:
+  db_data:

@@ -1,0 +1,29 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: docker/dev/Dockerfile
+    image: sickvik-dev
+    volumes:
+      - .:/var/www
+    ports:
+      - "9000:9000"
+    environment:
+      APP_ENV: local
+    networks:
+      - sickvik
+
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "80:80"
+    volumes:
+      - .:/var/www
+      - ./docker/dev/conf.d:/etc/nginx/conf.d
+    depends_on:
+      - app
+    networks:
+      - sickvik
+
+networks:
+  sickvik:
